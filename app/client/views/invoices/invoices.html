@@ -1,0 +1,45 @@
+<!-- invoices.html -->
+<template name='invoices'>
+	<div id="invoices">
+
+		{{#if items}}
+		<table class="ui basic table">
+			<thead>
+				<tr>
+					<th class='two wide'>Name</th>
+					<th class='four wide'>Invoice Date</th>
+					<th class='one wide'>Number</th>
+					<th class='one wide'>Items</th>
+					<th class='three wide'>Date Created</th>
+					<th class='four wide'></th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each items}}
+				<tr>
+					<td>{{project_name}}</td>
+					<td>{{formatDate date}}</td>
+					<td>{{invoice_number}}</td>
+					<td class="center aligned">{{items.length}}</td>
+					<td></td>
+					<td class="right aligned">
+						<div class="ui mini buttons">
+							<div class="ui blue button"><a href="" style="color: #FFF;">View</a></div>
+							<div class="ui button"><a href="{{pathFor 'invoice.edit' _id=_id}}" style="color: #FFF;">Edit</a></div>
+							<div class="ui red button"><a href="" style="color: #FFF;">Delete</a></div>
+						</div>
+					</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+		{{else}}
+		<div style="text-align: center; margin-top: 20%; margin-bottom: 15%;">
+			<h1>No Invoice created</h1>
+			<div>
+				<a class="ui blue button" href="{{pathFor 'invoices.new'}}" role="button">Create invoice</a>
+			</div>
+		</div>
+		{{/if}}
+	</div>
+</template>

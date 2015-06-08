@@ -1,0 +1,41 @@
+<!-- home_page.html -->
+<template name='homePage'>
+	<div id='home-page'>
+		<header>
+			<div class="container">
+				<div class="holder">
+					<div class="title">Quick Invoice</div>
+					<div class="sub-title">Create and send invoices to your customers as fast as possible</div>
+					<a class="btn ui button" href="{{pathFor 'invoices.new'}}" role="button">Create My invoice</a>
+				</div>
+			</div>
+		</header>
+		<section id="about">
+			<div class="holder">
+				<div class="title">About Quick Invoice</div>
+				<div class="description">
+					Quick invoice is a free tool that enables you to create and send invoices to your customers. 
+					You can sign in to save your invoices, and send them anytime needed.
+				</div>
+			</div>
+		</section>
+		<section id="action">
+			<div class="holder">
+				<div class="title">You could try us now?</div>
+				<div class="description">
+					Start using quick voice and to save time and make money.
+				</div>
+				<a class="btn ui button" href="{{pathFor 'invoices.new'}}" role="button">Create my Invoice</a>
+			</div>
+		</section>
+		<section id="contact">
+			<div class="holder">
+				<div class="title">We appreciate feedback</div>
+				<div class="description">
+					We want to here from you and what more you want from us.
+					Or just say <a href="">thank you!</a>
+				</div>
+			</div>
+		</section>
+	</div>
+</template>

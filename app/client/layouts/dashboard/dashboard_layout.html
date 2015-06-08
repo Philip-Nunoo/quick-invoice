@@ -1,0 +1,39 @@
+<!-- dashboard_layout.html -->
+<template name='dashboardLayout'>
+	<div id="dashboard-layout">
+		<div class="ui menu">
+			<div class="header item">
+				Quick Invoice
+			</div>
+			<div class="right menu">
+				<a class="item">
+					Sign In
+				</a>
+				<a class="item">
+					Sign Up
+				</a>
+			</div>
+		</div>
+		<div class="ui grid">
+			<div class="fourteen wide centered column">
+				<div class="ui grid">
+					<div class="twelve wide column">
+						<div class="container">
+							{{> yield }}
+						</div>
+					</div>
+					<div class="four wide column">
+						<div class="container">
+							Sign In 
+							<a class="" href="{{pathFor 'invoices'}}" role="button">My invoices</a> | 
+							<a class="" href="{{pathFor 'invoices.new'}}" role="button">Create invoice</a>
+						</div>
+						<div>
+							{{> yield region='pageContent'}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

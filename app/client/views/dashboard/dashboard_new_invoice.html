@@ -1,0 +1,8 @@
+<!-- dashboard_new_invoice.html -->
+<template name='dashboard_new_invoice'>
+	<div id="dashboard-new-invoice">
+		{{#autoForm type="insert" collection='Invoices' id="insertInvoice" meteorMethod="insert"}}
+		{{> invoiceForm}}
+		{{/autoForm}}
+	</div>
+</template>

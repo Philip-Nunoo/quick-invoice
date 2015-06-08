@@ -1,0 +1,87 @@
+<!-- invoice_form.html -->
+<template name="invoiceForm">
+	<div class="ui form segment">
+		<div class="two fields">
+			<div class="ui small input field {{#if afFieldIsInvalid name='project_name'}}error{{/if}}"> 
+				{{> afFieldInput name='project_name' placeholder="Project Name"}}
+			</div>
+			<div class="ui small input field {{#if afFieldIsInvalid name='email'}}error{{/if}}">
+				{{> afFieldInput name='email' placeholder='Email' }}
+			</div>
+		</div>
+		<div class="ui horizontal divider">Details</div>
+		<div class="two fields">
+			<div class="ui small input field {{#if afFieldIsInvalid name='date'}}error{{/if}}">
+				<label>Date of Issue</label>
+				{{> afFieldInput name='date' placeholder='Date'}}
+			</div>
+			<div class="ui small input field {{#if afFieldIsInvalid name='invoice_number'}}error{{/if}}">
+				<label>Invoice Number</label>
+				{{> afFieldInput name='invoice_number' placeholder='Invoice No'}}
+			</div>
+		</div>
+		<div class="two fields">			
+			<div class="field {{#if afFieldIsInvalid name='bill_to'}}error{{/if}}"> 
+				<label>Bill To : </label>
+				{{> afFieldInput name='bill_to' placeholder='Bill To'}}
+			</div>
+			<div class="field {{#if afFieldIsInvalid name='remit'}}error{{/if}}">
+				<label>Your Address : </label>
+				{{> afFieldInput name='remit' placeholder='Remittant'}}
+			</div>
+		</div>
+	</div>
+	<div class="ui horizontal divider">
+		Fill out items
+	</div>
+	<div class="sixteen wide column">
+		<!-- {{> afArrayField name='items'}} -->
+		<div class="ui top attached header">Invoice List</div>
+		<div class="ui bottom attached segment">
+			{{>afArrayField name='items' template='customArrayField'}}
+		</div>
+		<button type="submit" class="ui primary button">Save</button>
+	</div>
+</template>
+
+<template name='afArrayField_customArrayField'>
+	<div id="example1">
+		{{#afEachArrayItem name=this.atts.name }}
+		<div style="margin-bottom: 10px; border-bottom: 1px solid #DDD; padding-bottom: 20px;">
+			<div class="ui small input {{#if afFieldIsInvalid name=this.current.description}}error{{/if}}">
+				{{> afFieldInput name=this.current.description placeholder='Description'}}
+			</div>
+			<div class="ui small input {{#if afFieldIsInvalid name=this.current.quantity}}error{{/if}}">
+				{{> afFieldInput name=this.current.quantity placeholder='Quantity' style='width: 100px;'}}
+			</div>
+			<div class="ui small input {{#if afFieldIsInvalid name=this.current.price}}error{{/if}}">
+				{{> afFieldInput name=this.current.price placeholder='Price' style="width: 80px;"}}
+			</div>
+			<div class="ui small input {{#if afFieldIsInvalid name=this.current.total}}error{{/if}}">
+				{{> afFieldInput name=this.current.total disabled=true placeholder='Total' style="width: 80px;"}}
+			</div>
+			<div class="ui buttons">
+				{{#if afArrayFieldHasMoreThanMinimum name="items" minCount=1 maxCount=''}}
+				<div class="ui button autoform-remove-item" data-autoform-field="items">
+					Remove
+				</div>
+				{{/if}}
+			</div>
+		</div>
+		{{/afEachArrayItem}}
+	</div>
+	<div class="ui positive button autoform-add-item" data-autoform-field="items">
+		Add Item
+	</div>
+</template>
+
+<template name="invoiceTotalInfo">
+	<div id="invoiceTotalInfo" class="ui sticky">
+		<div class="container"  style='margin-top: 10px;'>
+			SubTotal
+			Discount
+			Tax
+			Amount Due
+		</div>
+	</div>
+</template>

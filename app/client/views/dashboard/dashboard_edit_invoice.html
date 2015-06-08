@@ -1,0 +1,10 @@
+<!-- dashboard_edit_invoice.html -->
+<template name="dashboard_edit_invoice">
+	<div id="dashboard-edit-invoice">
+		Edit Invoice
+		{{doc}}
+		{{#autoForm type="update" collection='Invoices' id="updateInvoice" doc=doc}}
+		{{> invoiceForm}}
+		{{/autoForm}}
+	</div>
+</template>
